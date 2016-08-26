@@ -17,178 +17,18 @@
   <body ng-app="iot">
 
     <ion-nav-bar class="bar-stable">
-      <ion-nav-back-button>
-      </ion-nav-back-button>
+      <ion-nav-back-button></ion-nav-back-button>
     </ion-nav-bar>
 
     <ion-nav-view></ion-nav-view>
 <!-- tabs.html -->
-    <script id="templates/tabs.html" type="text/ng-template">
-      <ion-tabs class="tabs-icon-top tabs-stable">
-
-        <ion-tab title="Home" icon="ion-home" href="#/tab/home">
-          <ion-nav-view name="home-tab"></ion-nav-view>
-        </ion-tab>
-
-        <ion-tab title="Lights" icon="ion-android-bulb" href="#/tab/lights">
-          <ion-nav-view name="lights-tab"></ion-nav-view>
-        </ion-tab>
-
-        <ion-tab title="Sensors" icon="ion-ios-pulse-strong" href="#/tab/sensors">
-          <ion-nav-view name="sensors-tab"></ion-nav-view>
-        </ion-tab>
-
-      </ion-tabs>
-    </script>
+    
 
 <!-- home.html -->
-    <script id="templates/home.html" type="text/ng-template">
-      <ion-view view-title="Home">
-        <ion-content class="padding">
-          <p>
-            This is Home
-          </p>
-        </ion-content>
-      </ion-view>
-    </script>
 
 <!-- lights.html-->
-    <script id="templates/lights.html" type="text/ng-template">
-      <ion-view view-title="Lights">
-        <ion-content class="padding">
-          <ul class="list">
-            <li class="item item-toggle">
-            Light 1
-              <label class="toggle toggle-balanced">
-              <input type="checkbox">
-                <div class="track">
-                  <div class="handle"></div>
-                </div>
-              </label>
-            </li>
-
-            <li class="item item-toggle">
-            Light 2
-              <label class="toggle toggle-balanced">
-              <input type="checkbox">
-                <div class="track">
-                  <div class="handle"></div>
-                </div>
-              </label>
-            </li>
-
-            <li class="item item-toggle">
-            Light 3
-              <label class="toggle toggle-balanced">
-              <input type="checkbox">
-                <div class="track">
-                  <div class="handle"></div>
-                </div>
-              </label>
-            </li>
-          </ul>
-      </ion-view>
-    </script>
 
 <!-- sensors.html-->
-    <script id="templates/sensors.html" type="text/ng-template">
-      <ion-view view-title="Sensors">
-        <ion-content class="padding">
-          <div class="list">
-            <li class="item item-icon-left">
-              <i class="icon ion-thermometer"></i>
-                Temperature
-              <span class="badge badge-energized">50%</span>
-            </li>
-
-            <li class="item item-icon-left">
-              <i class="icon ion-android-cloud-outline"></i>
-                Humidity
-              <span class="badge badge-assertive">80%</span>
-            </li>
-
-            <li class="item item-icon-left">
-              <i class="icon ion-nuclear"></i>
-                Dust
-              <span class="badge badge-calm">20%</span>
-            </li>
-
-          </div>
-        </ion-content>
-      </ion-view>
-    </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- <ion-side-menus>
-      <ion-side-menu-content>
-        <ion-header-bar class="bar-stable">
-          <h1 class="title">Lights</h1>
-        </ion-header-bar>
-
-        <ion-content>
-          <ul class="list">
-            <li class="item item-toggle">
-            Light 1
-              <label class="toggle toggle-balanced">
-              <input type="checkbox">
-                <div class="track">
-                  <div class="handle"></div>
-                </div>
-              </label>
-            </li>
-
-            <li class="item item-toggle">
-            Light 2
-              <label class="toggle toggle-balanced">
-              <input type="checkbox">
-                <div class="track">
-                  <div class="handle"></div>
-                </div>
-              </label>
-            </li>
-
-            <li class="item item-toggle">
-            Light 3
-              <label class="toggle toggle-balanced">
-              <input type="checkbox">
-                <div class="track">
-                  <div class="handle"></div>
-                </div>
-              </label>
-            </li>
-          </ul>
-        </ion-content>
-      </ion-side-menu-content>
-
- -->
-      <!-- Footer -->
-      <!-- <div class="bar bar-footer">
-        <div class="tabs tabs-stable">
-        <a class="tab-item">
-          Lights
-        </a>
-        <a class="tab-item">
-          Sensor
-        </a>
-        </div>
-      </div> -->
-
-      <!-- <ion-side-menu side="left">
-        <ion-header-bar class="bar-dark">
-        <h1 class="title">Sensor</h1>
-        </ion-header-bar>
-      </ion-side-menu> -->
-  <!-- </ion-side-menus> -->
+   
   </body>
 </html>
