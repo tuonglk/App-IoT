@@ -1,23 +1,19 @@
-<ion-content class="padding">
-          <p>
-            This is Home
-          </p>
-          <br>
-          <p>
-            This is Home
-          </p>
-          <br>
-          <p>
-            This is Home
-          </p>
-          <br>
-          <p>
-            This is Home
-          </p>
-          <br>
-          <p>
-            This is Home
-          </p>
-          <br>
-          
-</ion-content>
+<ion-view view-title="Home">
+	<ion-content class="padding">
+	  	<label class="item item-input">
+		  <span class="input-label">Server</span>
+		  <input ng-model="server" type="text">
+		</label>
+		<div class="padding">
+	    	<button style="left: 40%" class="button button-positive" ng-click="chooseServer(server)">Click</button>
+	    </div>
+	    <label class="item item-input item-select" ng-show="datas">
+		    <div class="input-label">
+		      Room
+		    </div>
+		    <select ng-model="current.room" ng-change="changeRoom()">
+		      <option ng-repeat="data in datas">{{data._id}}</option>
+		    </select>
+	    </label>	
+	</ion-content>
+</ion-view>

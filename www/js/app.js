@@ -6,7 +6,6 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
-angular.module('iot', ['ionic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -46,7 +45,7 @@ angular.module('iot', ['ionic'])
     views: {
       'home-tab': {
         templateUrl: 'templates/home.html',
-        controller: 'HomeTabCtrl'
+        controller: 'HomeCtrl'
       }
     }
   })
@@ -56,6 +55,7 @@ angular.module('iot', ['ionic'])
       views: {
         'lights-tab': {
           templateUrl: 'templates/lights.html',
+          controller: 'LightsCtrl'
         }
       }
     })
@@ -71,10 +71,6 @@ angular.module('iot', ['ionic'])
 
   // if none of the above states are matched, use this as the fallback
   
-$urlRouterProvider.otherwise('/tab/home');
+  $urlRouterProvider.otherwise('/tab/home');
 
-})
-
-.controller('HomeTabCtrl', function($scope) {
-  console.log('HomeTabCtrl');
 });

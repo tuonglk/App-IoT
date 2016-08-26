@@ -1,19 +1,39 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('HomeCtrl', function($scope, $http, $rootScope) {
+  $rootScope.current = {};
 
-.controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+  $scope.chooseServer = function(server){
+    $rootScope.current.server = server;
+    $http.get('http://'+server+':3000/api/rooms').success(function(data, status, headers, config) {
+        $rootScope.datas = data;
+    })
+    .error(function(data, status,headers,config) {
+    });
+  };
 
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
+  $scope.changeRoom = function(){
+    angular.forEach($rootScope.datas, function(data){
+      if($rootScope.current.room == data.room)
+      {
+        $rootScope.current.ip = data.ip;
+        console.log($rootScope.current);
+      }
+    });
+  };
+})
+
+.controller('LightsCtrl', function($scope, $rootScope, $http) {
+  $scope.led = {};
+
+  $scope.haveChange = function(){
+    console.log($scope.led.led1);
+    $http.get('http://'+$rootScope.current.server+':3000/api/'+$rootScope.current.room+'/led1')
+    .success(function(data, status, headers, config) {
+        console.log(data);
+    })
+    .error(function(data, status,headers,config) {
+    });
   };
 })
 
