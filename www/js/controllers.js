@@ -1,40 +1,33 @@
 angular.module('starter.controllers', [])
 
-.controller('HomeCtrl', function($scope, $http, $rootScope) {
+.controller('HomeCtrl', function($scope, $http, $rootScope, $firebaseArray, $firebaseObject) {
   $rootScope.current = {};
 
-  $scope.chooseServer = function(server){
-    $rootScope.current.server = server;
-    $http.get('http://'+server+':3000/api/rooms').success(function(data, status, headers, config) {
-        $rootScope.datas = data;
-    })
-    .error(function(data, status,headers,config) {
-    });
-  };
+  var roomsRef = firebase.database().ref("rooms");
+  $rootScope.datas = $firebaseArray(roomsRef);
+  console.log($rootScope.datas);
 
   $scope.changeRoom = function(){
     angular.forEach($rootScope.datas, function(data){
       if($rootScope.current.room == data.room)
       {
         $rootScope.current.ip = data.ip;
-        console.log($rootScope.current);
       }
     });
   };
 })
 
-.controller('LightsCtrl', function($scope, $rootScope, $http) {
-  $scope.led = {};
+.controller('LightsCtrl', function($scope, $rootScope, $http, $firebaseArray, $firebaseObject) {
 
-  $scope.haveChange = function(){
-    console.log($scope.led.led1);
-    $http.get('http://'+$rootScope.current.server+':3000/api/'+$rootScope.current.room+'/led1')
-    .success(function(data, status, headers, config) {
-        console.log(data);
-    })
-    .error(function(data, status,headers,config) {
-    });
-  };
+  $scope.$on("$ionicView.beforeEnter", function(event, data){
+    $scope.led = {};
+
+      var ref = firebase.database().ref("rooms/"+$rootScope.current.room).child("led");
+
+      var syncObject = $firebaseObject(ref);
+      syncObject.$bindTo($scope, $rootScope.current.room);
+  });
+
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {

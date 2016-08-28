@@ -1,10 +1,10 @@
 <ion-view view-title="Lights">
   <ion-content class="padding">
-    <ul class="list">
+    <ul ng-repeat="data in datas" ng-show="current.room=='{{data.room}}'" class="list">
       <li class="item item-toggle">
       Light 1
         <label class="toggle toggle-balanced">
-        <input ng-model="led.led1" type="checkbox" ng-change="haveChange()">
+        <input ng-model="$parent[data.room].led_1" ng-checked="data.led.led_1" type="checkbox" >
           <div class="track">
             <div class="handle"></div>
           </div>
@@ -14,7 +14,7 @@
       <li class="item item-toggle">
       Light 2
         <label class="toggle toggle-balanced">
-        <input type="checkbox">
+        <input ng-model="$parent[data.room].led_2" ng-checked="data.led.led_2" type="checkbox" >
           <div class="track">
             <div class="handle"></div>
           </div>
